@@ -1,8 +1,8 @@
 const {MongoClient} = require('mongodb')
 
 async function getAll(res){
-    //const uri = "mongodb+srv://mongo:27017/testi"
-    const uri = "mongodb://localhost:27017/testi"
+    const uri = "mongodb://mongodb:27017/testi"
+    //const uri = "mongodb://localhost:27017/testi"
     const client = new MongoClient(uri)
 
     try {
@@ -25,8 +25,8 @@ async function insertDoc(req, res){
     const insert = req.body
     console.log(insert)
 
-    //const uri = "mongodb+srv://mongo:27017/testi"
-    const uri = "mongodb://localhost:27017/testi"
+    const uri = "mongodb://mongodb:27017/testi"
+    //const uri = "mongodb://localhost:27017/testi"
     const client = new MongoClient(uri)
 
     try {

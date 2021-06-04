@@ -15,7 +15,7 @@ const Formi = (props) => {
             timestamp: Math.floor(Date.now() / 1000)
         }
 
-        const url = "http://localhost:8080/insert"
+        const url = "http://mongoapi:8080/insert"
         
         try{
             const res = await fetch(url, {

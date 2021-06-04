@@ -9,7 +9,7 @@ const corsOptions = {origin: '*'}
 const db_ = require("./src/mongohandler.js")
 
 app.all('*', (req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3030")
+    res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("access-control-allow-headers", "*")
     next()
 })

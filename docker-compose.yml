@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  inputti:
+    build: ./inputti
+    ports:
+      - "3001:3000"
+  mongoapi:
+    build: ./mongoapi
+  mongodb:
+    image: "mongo:latest"
