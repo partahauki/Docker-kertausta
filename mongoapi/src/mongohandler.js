@@ -13,9 +13,9 @@ async function getAll(res){
             res.json(data)
         })
      
-    } catch (e) {
-        console.error(e)
-        res.json(e)
+    } catch (err) {
+        console.error(err)
+        res.sendStatus(500)
     } finally {
         await client.close();
     }
@@ -23,6 +23,7 @@ async function getAll(res){
 
 async function insertDoc(req, res){
     const insert = req.body
+    console.log(insert)
 
     //const uri = "mongodb+srv://mongo:27017/testi"
     const uri = "mongodb://localhost:27017/testi"
@@ -32,21 +33,24 @@ async function insertDoc(req, res){
         await client.connect()
         const coll = client.db("testi").collection("taulu")
 
-        coll.insertOne(insert, (err, data) => {
-            if(err){
-                res.status(500).send("Error inserting data: " + err)
-            }
-            else{
-                res.sendStatus(200)
-            }
-        })
-     
-    } catch (e) {
-        console.error(e)
-        res.json(e)
+        await coll.insertOne(insert)
+        res.sendStatus(200)
+
+    } catch (err) {
+        console.error(err)
+        res.sendStatus(500)
     } finally {
         await client.close();
     }
 }
 
 module.exports = {getAll, insertDoc}
+
+/*coll.insertOne(insert, (err, data) => {
+    if(err){
+        res.status(500).send("Error inserting data: " + err)
+    }
+    else{
+        
+    }
+})*/

@@ -1,20 +1,27 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const app = express()
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(express.json())
 const port = 8080
+
+const cors = require('cors')
+const corsOptions = {origin: '*'}
 
 const db_ = require("./src/mongohandler.js")
 
-app.get('/', (req, res) => {
-    db_.getAll(res)
+app.all('*', (req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3030")
+    res.setHeader("access-control-allow-headers", "*")
+    next()
 })
 
 app.post('/insert', (req, res) => {
     db_.insertDoc(req, res)
 })
 
+app.get('/', (req, res) => {
+    db_.getAll(res)
+})
+
 app.listen(port, () => {
     console.log("listening port " + port)
 })
-console.log("toimiiko")
