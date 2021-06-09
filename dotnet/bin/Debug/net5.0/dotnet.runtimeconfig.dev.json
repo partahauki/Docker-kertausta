@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/home/beetle/.dotnet/store/|arch|/|tfm|",
+      "/home/beetle/.nuget/packages"
+    ]
+  }
+}

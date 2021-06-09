@@ -2,8 +2,9 @@
 
 ## Notes
 #### next:
-    all servers ready for docker
-    docker composer
+    add fetch to angular
+    create redis search to redisapi
+    dotnet worker transfer
 
 #### todo:
     mongoapi/mongohandler.js more compact? & change uri when docker
