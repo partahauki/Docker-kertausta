@@ -44,3 +44,16 @@
 /home/beetle/Docker-kertausta/dotnet/obj/Debug/net5.0/ref/dotnet.dll
 /home/beetle/Docker-kertausta/dotnet/obj/Debug/net5.0/dotnet.pdb
 /home/beetle/Docker-kertausta/dotnet/obj/Debug/net5.0/dotnet.genruntimeconfig.cache
+/home/beetle/Docker-kertausta/dotnet/bin/Debug/net5.0/DnsClient.dll
+/home/beetle/Docker-kertausta/dotnet/bin/Debug/net5.0/MongoDB.Bson.dll
+/home/beetle/Docker-kertausta/dotnet/bin/Debug/net5.0/MongoDB.Driver.dll
+/home/beetle/Docker-kertausta/dotnet/bin/Debug/net5.0/MongoDB.Driver.Core.dll
+/home/beetle/Docker-kertausta/dotnet/bin/Debug/net5.0/MongoDB.Libmongocrypt.dll
+/home/beetle/Docker-kertausta/dotnet/bin/Debug/net5.0/SharpCompress.dll
+/home/beetle/Docker-kertausta/dotnet/bin/Debug/net5.0/runtimes/win/native/libzstd.dll
+/home/beetle/Docker-kertausta/dotnet/bin/Debug/net5.0/runtimes/win/native/snappy32.dll
+/home/beetle/Docker-kertausta/dotnet/bin/Debug/net5.0/runtimes/win/native/snappy64.dll
+/home/beetle/Docker-kertausta/dotnet/bin/Debug/net5.0/runtimes/linux/native/libmongocrypt.so
+/home/beetle/Docker-kertausta/dotnet/bin/Debug/net5.0/runtimes/osx/native/libmongocrypt.dylib
+/home/beetle/Docker-kertausta/dotnet/bin/Debug/net5.0/runtimes/win/native/mongocrypt.dll
+/home/beetle/Docker-kertausta/dotnet/bin/Debug/net5.0/csredis.dll

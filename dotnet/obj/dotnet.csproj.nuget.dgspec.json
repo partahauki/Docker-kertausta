@@ -41,6 +41,14 @@
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "csredis": {
+              "target": "Package",
+              "version": "[3.2.1, )"
+            },
+            "mongodb.driver": {
+              "target": "Package",
+              "version": "[2.12.4, )"
             }
           },
           "imports": [
@@ -64,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,14 +1,14 @@
 const {MongoClient} = require('mongodb')
 
 async function getAll(res){
-    const uri = "mongodb://mongodb:27017/testi"
+    const uri = "mongodb://mongodb:27017/test"
     //const uri = "mongodb://localhost:27017/testi"
     const client = new MongoClient(uri)
 
     try {
         await client.connect()
     
-        const coll = client.db("testi").collection("taulu")
+        const coll = client.db("test").collection("taulu")
         coll.find().toArray((err, data) => {
             res.json(data)
         })
@@ -25,13 +25,13 @@ async function insertDoc(req, res){
     const insert = req.body
     console.log(insert)
 
-    const uri = "mongodb://mongodb:27017/testi"
+    const uri = "mongodb://mongodb:27017/test"
     //const uri = "mongodb://localhost:27017/testi"
     const client = new MongoClient(uri)
 
     try {
         await client.connect()
-        const coll = client.db("testi").collection("taulu")
+        const coll = client.db("test").collection("taulu")
 
         await coll.insertOne(insert)
         res.sendStatus(200)

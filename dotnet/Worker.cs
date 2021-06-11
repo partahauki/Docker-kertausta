@@ -5,18 +5,34 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System.Net.Http;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using CSRedis;
 
 namespace dotnet
 {
     public class Worker : BackgroundService
     {
-        private static readonly HttpClient client = new HttpClient();
+        private static readonly MongoClient mongoClient = new MongoClient("mongodb://mongodb:27017");
+        private static readonly MongoCollectionBase<BsonDocument> collection = (MongoCollectionBase<BsonDocument>)mongoClient.GetDatabase("test").GetCollection<BsonDocument>("taulu");
+        private static readonly RedisClient redisClient = new RedisClient("redis");
+        public long lastUpdate;
         private readonly ILogger<Worker> _logger;
 
         public Worker(ILogger<Worker> logger)
         {
             _logger = logger;
+            lastUpdate = DateTimeOffset.Now.ToUnixTimeSeconds();
+
+            redisClient.FlushAll();
+
+            var cursor = collection.Find(new BsonDocument()).ToCursor();
+
+            Console.WriteLine("Initial Transfer:");    
+            foreach(var doc in cursor.ToEnumerable()) {
+                Console.WriteLine(doc);
+                redisClient.LPush("strings", doc["string"]);
+            }
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -25,11 +41,16 @@ namespace dotnet
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
-                var stringTask = client.GetStringAsync("http://mongoapi:8080/");
-                var msg = await stringTask;
-                Console.WriteLine(msg);
+                var filter = Builders<BsonDocument>.Filter.Gt("timestamp", lastUpdate);
+                var cursor = collection.Find(filter).ToCursor();
+                lastUpdate = DateTimeOffset.Now.ToUnixTimeSeconds();
 
-                await Task.Delay(10000, stoppingToken);
+                foreach(var doc in cursor.ToEnumerable()) {
+                    Console.WriteLine("Added: " + doc);
+                    redisClient.LPush("strings", doc["string"]);
+                }
+
+                await Task.Delay(5000, stoppingToken);
             }
         }
     }

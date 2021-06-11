@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="csredis" Version="3.2.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="mongodb.driver" Version="2.12.4" />
   </ItemGroup>
 </Project>
