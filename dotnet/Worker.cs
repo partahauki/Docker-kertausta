@@ -13,11 +13,22 @@ namespace dotnet
 {
     public class Worker : BackgroundService
     {
-        private static readonly MongoClient mongoClient = new MongoClient("mongodb://mongodb:27017");
-        private static readonly MongoCollectionBase<BsonDocument> collection = (MongoCollectionBase<BsonDocument>)mongoClient.GetDatabase("test").GetCollection<BsonDocument>("taulu");
-        private static readonly RedisClient redisClient = new RedisClient("redis");
+        private static readonly MongoClient mongoClient;
+        private static readonly MongoCollectionBase<BsonDocument> collection;
+        private static readonly RedisClient redisClient;
         public long lastUpdate;
         private readonly ILogger<Worker> _logger;
+
+        static Worker() {
+            try{
+                mongoClient = new MongoClient("mongodb://mongodb:27017");
+                collection = (MongoCollectionBase<BsonDocument>)mongoClient.GetDatabase("test").GetCollection<BsonDocument>("taulu");
+                redisClient = new RedisClient("redis");
+            } catch (Exception e) {
+                Console.WriteLine(e);
+                Environment.Exit(1);
+            }
+        }
 
         public Worker(ILogger<Worker> logger)
         {

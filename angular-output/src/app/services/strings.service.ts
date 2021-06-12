@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http'
   providedIn: 'root'
 })
 export class StringsService {
-  private url: string = "http://redisapi:8070/"
+  private url: string = "http://localhost:8070/"
 
   constructor(private client: HttpClient) { }
 

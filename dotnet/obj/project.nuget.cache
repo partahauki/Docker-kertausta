@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vxCyF9gQWhEDNYCVOohi5I6XaIwp7GfDfZmttglmqq9IvYSAbQT1t2lAsM7+waMZdZgr0hx5+O02tzV/k4X0iQ==",
+  "dgSpecHash": "uxT+xLumG26thBocVvXhZyacE9RPh/mVeBLsbu3t45A8bOVubVpYYKV2H1E3rnYUuhGsp/gwGkvlfZrIFNfKbw==",
   "success": true,
   "projectFilePath": "/home/beetle/Docker-kertausta/dotnet/dotnet.csproj",
   "expectedPackageFiles": [
@@ -44,6 +44,9 @@
     "/home/beetle/.nuget/packages/system.security.accesscontrol/5.0.0/system.security.accesscontrol.5.0.0.nupkg.sha512",
     "/home/beetle/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512",
     "/home/beetle/.nuget/packages/system.text.encoding.codepages/4.5.1/system.text.encoding.codepages.4.5.1.nupkg.sha512",
+    "/home/beetle/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/5.0.6/microsoft.netcore.app.runtime.linux-x64.5.0.6.nupkg.sha512",
+    "/home/beetle/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/5.0.6/microsoft.aspnetcore.app.runtime.linux-x64.5.0.6.nupkg.sha512",
+    "/home/beetle/.nuget/packages/microsoft.netcore.app.host.linux-x64/5.0.6/microsoft.netcore.app.host.linux-x64.5.0.6.nupkg.sha512",
     "/home/beetle/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": [

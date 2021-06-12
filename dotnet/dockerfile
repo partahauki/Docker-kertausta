@@ -1,0 +1,5 @@
+FROM mcr.microsoft.com/dotnet/runtime-deps:5.0
+COPY ./bin/release/net5.0/linux-x64 /app
+
+WORKDIR /app
+ENTRYPOINT ["./dotnet"]

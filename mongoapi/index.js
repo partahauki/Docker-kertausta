@@ -8,11 +8,13 @@ const corsOptions = {origin: '*'}
 
 const db_ = require("./src/mongohandler.js")
 
-app.all('*', (req, res, next) => {
+/*app.all('*', (req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("access-control-allow-headers", "*")
     next()
-})
+})*/
+
+app.use(cors(corsOptions))
 
 app.post('/insert', (req, res) => {
     db_.insertDoc(req, res)
