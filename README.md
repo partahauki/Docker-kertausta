@@ -6,7 +6,7 @@ This is a practice project I made before I started looking for a job. My objecti
 ## How it works?
 This program has input-page made with React, that a user can send a string with. Then there is output-page made with Angular that user can use to see his sent strings. Inbetween, there are couple of databases that these strings go through.  
   
-![alt text](https://github.com/partahauki/docker-practice-project-2021/blob/main/docker_diagram.svg?raw=true) 
+![alt text](https://github.com/partahauki/docker-practice-project-2021/blob/main/chart.png?raw=true) 
   
 After inputting a string, it goes to mongodb through an api made with node and express. Then there is a worker made with dotnet that transfers strings between mongodb and redis-server. Finally output-page reads those strings in redis through an api, also made with node and express.
 
