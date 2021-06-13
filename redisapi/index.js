@@ -1,7 +1,11 @@
 const express = require('express')
 const app = express()
 app.use(express.json())
-const port = 8070
+const port = process.env.PORT || 8070
+
+const cors = require('cors')
+const corsOptions = {origin: 'http://localhost:4200'}
+app.use(cors(corsOptions))
 
 const redis = require('redis')
 const { promisifyAll } = require('bluebird')
@@ -15,12 +19,6 @@ const client = redis.createClient({
 client.on('error', err => {
     console.log('Error ' + err)
 });
-
-app.all('*', (req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    res.setHeader("access-control-allow-headers", "*")
-    next()
-})
 
 app.get('/', async (req, res) => {
     const return_ = await client.lrangeAsync("strings", "0", "-1")

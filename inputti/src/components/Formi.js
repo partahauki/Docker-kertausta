@@ -12,7 +12,6 @@ const Formi = (props) => {
 
         const body_ = {
             string: string_,
-            timestamp: Math.floor(Date.now() / 1000)
         }
 
         const url = "http://localhost:8080/insert"

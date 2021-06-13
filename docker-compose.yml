@@ -3,7 +3,7 @@ services:
   inputti:
     build: ./inputti
     ports:
-      - "3001:3000"
+      - "3000:3000"
   outputti:
     build: ./angular-output
     ports:

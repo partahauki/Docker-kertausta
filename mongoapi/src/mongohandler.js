@@ -1,14 +1,14 @@
-const {MongoClient} = require('mongodb')
+const { MongoClient } = require('mongodb')
+
+const uri = "mongodb://mongodb:27017/test"
 
 async function getAll(res){
-    const uri = "mongodb://mongodb:27017/test"
-    //const uri = "mongodb://localhost:27017/testi"
     const client = new MongoClient(uri)
-
+    
     try {
         await client.connect()
-    
-        const coll = client.db("test").collection("taulu")
+        const coll = client.db("docker").collection("strings")
+
         coll.find().toArray((err, data) => {
             res.json(data)
         })
@@ -16,22 +16,22 @@ async function getAll(res){
     } catch (err) {
         console.error(err)
         res.sendStatus(500)
+
     } finally {
-        await client.close();
+        await client.close()
     }
 }
 
 async function insertDoc(req, res){
-    const insert = req.body
-    console.log(insert)
+    const insert = {}
+    insert["string"] = req.body["string"].replace(/\.|\$/g, '_')
+    insert["timestamp"] = Math.floor(Date.now() / 1000)
 
-    const uri = "mongodb://mongodb:27017/test"
-    //const uri = "mongodb://localhost:27017/testi"
     const client = new MongoClient(uri)
 
     try {
         await client.connect()
-        const coll = client.db("test").collection("taulu")
+        const coll = client.db("docker").collection("strings")
 
         await coll.insertOne(insert)
         res.sendStatus(200)
@@ -39,18 +39,10 @@ async function insertDoc(req, res){
     } catch (err) {
         console.error(err)
         res.sendStatus(500)
+
     } finally {
-        await client.close();
+        await client.close()
     }
 }
 
-module.exports = {getAll, insertDoc}
-
-/*coll.insertOne(insert, (err, data) => {
-    if(err){
-        res.status(500).send("Error inserting data: " + err)
-    }
-    else{
-        
-    }
-})*/
+module.exports = { getAll, insertDoc }

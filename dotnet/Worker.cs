@@ -22,7 +22,8 @@ namespace dotnet
         static Worker() {
             try{
                 mongoClient = new MongoClient("mongodb://mongodb:27017");
-                collection = (MongoCollectionBase<BsonDocument>)mongoClient.GetDatabase("test").GetCollection<BsonDocument>("taulu");
+                collection = (MongoCollectionBase<BsonDocument>)mongoClient
+                    .GetDatabase("docker").GetCollection<BsonDocument>("strings");
                 redisClient = new RedisClient("redis");
             } catch (Exception e) {
                 Console.WriteLine(e);
