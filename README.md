@@ -1,7 +1,7 @@
 # Docker/Fullstack practice project 2021
 
 ## What is this?
-This is a practice project I made before I started looking for a job. My objective was to practice docker skills and also refresh my web-programming skills.
+This is a practice project I made before I started looking for a job. My objectives were to learn to use docker, refresh some basics of all these web-technologies and also take a quick look into how angular works, as I hadn't used it before.
 
 ## How it works?
 This program has input-page made with React, that a user can send a string with. Then there is output-page made with Angular that user can use to see his sent strings. In between, there are a couple of databases that these strings go through.
