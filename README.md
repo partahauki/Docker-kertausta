@@ -1,7 +1,7 @@
-# Docker/Fullstack practice project 2021
+# Docker practice project 2021
 
 ## What is this?
-This is a practice project I made before I started looking for a job. My objectives were to learn to use docker, refresh some basics of all these web-technologies and also take a quick look into how angular works, as I hadn't used it before.
+This is a practice project I made for learning Docker. My objectives were to learn Docker, refresh some basics of all these web-technologies and also take a quick look into how angular works, as I hadn't used it before.
 
 ## How it works?
 This program has input-page made with React, that a user can send a string with. Then there is output-page made with Angular that user can use to see his sent strings. In between, there are a couple of databases that these strings go through.
@@ -21,7 +21,7 @@ Ports that need to be available:
 - 8080 MongoApi
 - 8070 RedisApi
 
-Navigate to http://localhost:3000 and input some strings. At http://localhost:4200 you can see all the strings you submitted. Output-page has to be manually refreshed if you were to input new string.
+Navigate to http://localhost:3000 and input some strings. At http://localhost:4200 you can see all the strings you submitted. Output-page has to be manually refreshed if you were to input a new string.
 
 ## Docker images
 #### Base images used:
@@ -32,5 +32,3 @@ Navigate to http://localhost:3000 and input some strings. At http://localhost:42
     outputti: nginx:1.21.0-alpine
     redis: redis:6.2.4-alpine
     mongodb: mongo:5.0.0-rc1-focal
-
-
